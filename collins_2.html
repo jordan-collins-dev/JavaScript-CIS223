@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="java.css" />
+  <title>About</title>
+</head>
+<body>
+  <div id="wrapper">
+    <video id="bgVideo" autoplay muted loop playsinline>
+      <source src="images/background.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <header>
+      <h1>About</h1>
+    </header>
+
+    <hr />
+
+    <nav>
+      <a href="collins_1.html">Home</a>
+      <span><u>About</u></span>
+    </nav>
+
+    <main>
+      <article>
+        <h2>My Top 5 Goals for Learning JavaScript</h2>
+        <ol>
+          <li>Understand the fundamentals of JavaScript</li>
+          <li>Learn how to manipulate the DOM</li>
+          <li>Master asynchronous programming with Promises and async/await</li>
+          <li>Build interactive web applications</li>
+          <li>Explore JavaScript frameworks like React or Vue</li>
+        </ol>
+      </article>
+
+      <hr />
+
+      <p>This is a sample HTML document.</p>
+
+      <button id="helloBtn">Click Me</button>
+    </main>
+
+    <footer>
+      <p>© 2026 Everyday Genius LLC <a href="mailto:jcolli97@jjc.stu.edu">Contact Me</a></p>
+    </footer>
+  </div>
+
+  <script>
+  
+    function hello() {
+      alert("welcome to javascript!");
+    }
+    document.getElementById('helloBtn').addEventListener('click', hello);
+    (function setupBgVideo(){
+      var v = document.getElementById('bgVideo');
+      if(!v) return;
+      v.addEventListener('loadedmetadata', function(){
+        try{
+          if (v.duration && isFinite(v.duration)) {
+            v.currentTime = Math.random() * v.duration;
+          }
+        }catch(e){}
+        v.play().catch(function(){});
+      });
+    })();
+  </script>
+</body>
+</html>

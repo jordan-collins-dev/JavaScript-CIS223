@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="java.css" />
+    <title>Home</title>
+</head>
+<body>
+    <div id="wrapper">
+        
+        <header>
+            <h1>Hello, World!</h1>
+        </header>
+
+        <video id="bgVideo" autoplay muted loop playsinline>
+            <source src="images/space.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        
+
+        <nav>
+            <span><u>Home</u></span> &nbsp;
+            <a href="collins_2.html">About</a>
+
+        </nav>
+
+        <img id="jsLogo" src="images/javascript.jpeg" alt="JavaScript Logo" style="width:200px;height:auto;" />
+
+        
+
+        <p>Welcome To JavaScript CIS223</p>
+
+        <button id="helloBtn">Click Me</button>
+
+        <footer>
+            <p>© 2026 Everyday Genius LLC <a href="mailto:jcolli97@jjc.stu.edu">Contact Me</a></p>
+        </footer>
+    </div>
+
+    <script>
+        function hello() {
+            alert("Hello, JavaScript!");
+        }
+        document.getElementById('helloBtn').addEventListener('click', hello);
+        (function setupBgVideo(){
+            var v = document.getElementById('bgVideo');
+            if(!v) return;
+            v.addEventListener('loadedmetadata', function(){
+                try{
+                    if (v.duration && isFinite(v.duration)) {
+                        v.currentTime = Math.random() * v.duration;
+                    }
+                }catch(e){}
+                v.play().catch(function(){});
+            });
+        })();
+    </script>
+</body>
+</html>
